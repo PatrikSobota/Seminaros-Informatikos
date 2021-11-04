@@ -1,7 +1,7 @@
 import tkinter as tk
 
 def text():
-    y = open(file = "txt.txt")
+    y = open(file = "textak.txt")
     for i in range(12):
         x = y.readline()
         print(x)
