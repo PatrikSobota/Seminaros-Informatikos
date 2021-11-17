@@ -10,7 +10,7 @@ okno = tk.Tk()
 
 
 
-btn = tk.Button(okno, activebackground = "blue", height = 15, width = 150, bg = "cyan", command = text)
+btn = tk.Button(okno, activebackground = "yellow", height = 15, width = 150, bg = "green", command = text)
 btn.pack()
 
 okno.mainloop()
