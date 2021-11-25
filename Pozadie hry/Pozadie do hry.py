@@ -3,7 +3,9 @@ import threading
 import random
 import time
 ######################################################
-def nacitaj_mapu(cesta):
+
+
+def nacitaj_mapu():
     # vytvorime cestu k suboru, ktory budeme pouzivat
     premenna = open('textak-1.txt')
     # z prveho riadku v subore nacitame sirku
@@ -13,7 +15,7 @@ def nacitaj_mapu(cesta):
 
     vyska = 10
     # vytvorime premennu mapa, ktora je zoznam - list
-    mapa = ()
+    mapa = []
 
     # pre kazdy riadok mapy precitaj kazdy riadok a vytvor z nich zoznam (rozsah je po vysku)
     for y in range(0, 11):
