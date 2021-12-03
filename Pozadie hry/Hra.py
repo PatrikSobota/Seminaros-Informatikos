@@ -30,16 +30,15 @@ def nacitaj_mapu(cesta):
             for x in range(0, vyska):
 
                 if mapa[y][x] == 'p':
-                    mapa[y][x] = ''
+                    mapa[y][x] = ' '
                     pac_x = x
                     pac_y = y
                     pac_found = True
                 elif mapa[y][x] == 'g':
-                    mapa[y][x] = ''
+                    mapa[y][x] = ' '
                     duch_x = x
                     duch_y = y
                     duch_found = True
-
                 if pac_found and duch_found:
                     break
 
@@ -49,9 +48,7 @@ def nacitaj_mapu(cesta):
 
 def vytvor_platno(okno, sirka, vyska, mapa, cell_size, stena):
 
-    platno = tkinter.Canvas(okno,
-                width= sirka * cell_size,
-                height = vyska * cell_size)
+    platno = tkinter.Canvas(okno, width= sirka * cell_size, height = vyska * cell_size)
     platno.config(bg='orange')
     platno.pack()
 
@@ -95,9 +92,7 @@ def pacmanmove(event):
         pac_x = target_x
         pac_y = target_y
 
-        platno.coords(pacman,
-                      target_x * cell_size + cell_size / 2,
-                      target_y * cell_size + cell_size / 2)
+        platno.coords(pacman, target_x * cell_size + cell_size / 2, target_y * cell_size + cell_size / 2)
 
     global duch_x
     global duch_y
@@ -125,11 +120,11 @@ sirka, vyska, mapa, pac_x, pac_y, duch_x, duch_y = nacitaj_mapu('textak.txt')
 wall = tkinter.PhotoImage(file='wall.gif')
 
 
-platno = (okno, sirka, vyska, mapa, cell_size, wall)
+platno = tkinter.Canvas(okno, sirka, vyska, mapa, cell_size, wall)
 
 
 pacman_data = tkinter.PhotoImage (file= 'pacman.gif')
-pacman = platno.create_image (pac_x * cell_size + cell_size / 2, pac_y * cell_size + cell_size / 2, image=pacman_data)
+pacman = platno.create_image(pac_x * cell_size + cell_size / 2, pac_y * cell_size + cell_size / 2, image=pacman_data)
 
 duch_data = tkinter.PhotoImage (file= 'ghost.gif')
 duch = platno.create_image (duch_x * cell_size + cell_size / 2, duch_y * cell_size + cell_size / 2, image=duch_data)
@@ -145,6 +140,6 @@ platno.bind_all ('<KeyPress-Escape>', lambda key: okno.destroy())
 
 
 
-duch_timer.start()
+
 okno.mainloop()
 terminate = True
